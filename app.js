@@ -88,19 +88,25 @@ function createCard(work) {
   // 썸네일 — 주소가 없거나 이미지가 깨지면 기본 아이콘이 자리를 지킵니다
   const thumb = document.createElement("div");
   thumb.className = "thumb";
-  thumb.textContent = "🎬";
+
+  const placeholder = document.createElement("span");
+  placeholder.className = "ph";
+  placeholder.textContent = "🎬";
+  thumb.appendChild(placeholder);
 
   if (work.image_url) {
     const img = document.createElement("img");
     img.loading = "lazy";
     img.alt = "";
+    // 다 받아진 뒤에만 바꿔 끼웁니다. 깨지면 아이콘이 그대로 남습니다.
     img.onload = () => {
-      thumb.textContent = "";
-      thumb.appendChild(img);
+      placeholder.remove();
+      thumb.insertBefore(img, thumb.firstChild);
     };
     img.src = work.image_url;
   }
 
+  // 정보는 이미지 위에 얹습니다. 아래 따로 적지 않습니다.
   const meta = document.createElement("div");
   meta.className = "meta";
 
@@ -114,7 +120,8 @@ function createCard(work) {
     meta.appendChild(summary);
   }
 
-  card.append(thumb, meta);
+  thumb.appendChild(meta);
+  card.appendChild(thumb);
   return card;
 }
 
