@@ -4,10 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>이광복 — 영상 디자이너</title>
-    <meta
-      name="description"
-      content="영상 디자이너 이광복의 작업물 모음"
-    />
+    <meta name="description" content="영상 디자이너 이광복의 작업물 모음" />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
@@ -15,21 +12,26 @@
     />
   </head>
   <body>
-    <div class="page">
-      <!-- 상단 프로필 : config.js 의 PROFILE 로 채워집니다 -->
-      <header class="profile" id="profile"></header>
+    <div class="banner" aria-hidden="true"></div>
+
+    <div class="shell">
+      <!-- 왼쪽 프로필 : config.js 또는 Supabase 의 profile 로 채워집니다 -->
+      <aside class="profile" id="profile"></aside>
 
       <main>
-        <h2 class="section-label">작업물</h2>
+        <div class="works-head">
+          <h2>작업</h2>
+          <span class="count" id="works-count"></span>
+        </div>
         <div class="works" id="works">
           <p class="state">불러오는 중…</p>
         </div>
       </main>
-
-      <footer class="footer">
-        <span id="footer-name"></span>
-      </footer>
     </div>
+
+    <footer class="footer">
+      <span id="footer-name"></span>
+    </footer>
 
     <script src="config.js"></script>
     <script src="app.js"></script>

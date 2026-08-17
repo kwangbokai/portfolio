@@ -1,25 +1,35 @@
 /* ============================================================
    어드민 화면 전용. 예쁘게보다 쓰기 쉽게.
+   색은 styles.css 의 변수를 그대로 씁니다.
    ============================================================ */
 
-.page--admin {
-  max-width: 720px;
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px 18px 60px;
+  }
 }
 
 /* ── 로그인 ──────────────────────────────────────────────── */
 
 .login {
   max-width: 340px;
-  margin: 8vh auto 0;
+  margin: 6vh auto 0;
 }
 
 .login h1 {
   margin: 0;
   font-size: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 .login-desc {
-  margin: 6px 0 28px;
+  margin: 6px 0 24px;
   color: var(--text-dim);
   font-size: 0.9375rem;
 }
@@ -32,13 +42,14 @@
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   border-bottom: 1px solid var(--line);
 }
 
 .admin-top h1 {
   margin: 0;
   font-size: 1.375rem;
+  letter-spacing: -0.02em;
 }
 
 .admin-who {
@@ -58,7 +69,7 @@
 .tabs {
   display: flex;
   gap: 4px;
-  margin: 24px 0 20px;
+  margin: 22px 0 20px;
 }
 
 .tab {
@@ -72,10 +83,15 @@
   cursor: pointer;
 }
 
-.tab.is-active {
+.tab:hover {
   background: var(--surface);
-  border-color: var(--line);
-  color: var(--text);
+}
+
+.tab.is-active {
+  background: var(--accent-soft);
+  border-color: #ccd8ff;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 /* ── 버튼 ────────────────────────────────────────────────── */
@@ -86,9 +102,9 @@
   justify-content: center;
   gap: 6px;
   padding: 9px 16px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   border-radius: 8px;
-  background: var(--surface);
+  background: var(--bg);
   color: var(--text);
   font: inherit;
   font-size: 0.875rem;
@@ -98,8 +114,8 @@
 }
 
 .btn:hover:not(:disabled) {
-  background: var(--surface-hover);
-  border-color: #3a3a44;
+  background: var(--surface);
+  border-color: var(--text-faint);
 }
 
 .btn:disabled {
@@ -108,15 +124,15 @@
 }
 
 .btn--primary {
-  background: #f2f2f4;
-  color: #16161a;
-  border-color: #f2f2f4;
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
   font-weight: 600;
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: #fff;
-  border-color: #fff;
+  background: #143fd6;
+  border-color: #143fd6;
 }
 
 .btn--small {
@@ -125,8 +141,9 @@
 }
 
 .btn--danger:hover:not(:disabled) {
-  border-color: #7d3b3b;
-  color: #ff9d9d;
+  border-color: #e0b3ae;
+  background: #fdf3f2;
+  color: #b42318;
 }
 
 /* ── 폼 ──────────────────────────────────────────────────── */
@@ -166,7 +183,7 @@ label.check {
 label.check input {
   width: 16px;
   height: 16px;
-  accent-color: #f2f2f4;
+  accent-color: var(--accent);
 }
 
 .label-row {
@@ -176,7 +193,7 @@ label.check input {
 }
 
 .req {
-  color: #7d7d8a;
+  color: var(--text-faint);
   font-size: 0.75rem;
 }
 
@@ -187,8 +204,8 @@ input[type="password"],
 textarea {
   width: 100%;
   padding: 10px 12px;
-  background: #0f0f12;
-  border: 1px solid var(--line);
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
   border-radius: 8px;
   color: var(--text);
   font: inherit;
@@ -203,11 +220,12 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #55555f;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 small {
-  color: #6e6e79;
+  color: var(--text-faint);
   font-size: 0.75rem;
 }
 
@@ -220,13 +238,13 @@ small {
 
 .form-error {
   margin: 0;
-  color: #ff9d9d;
+  color: #b42318;
   font-size: 0.8125rem;
 }
 
 .form-note {
   margin: 0;
-  color: #8fd9a8;
+  color: #067647;
   font-size: 0.8125rem;
 }
 
@@ -241,7 +259,7 @@ small {
 }
 
 .hint {
-  color: #6e6e79;
+  color: var(--text-faint);
   font-size: 0.8125rem;
 }
 
@@ -258,26 +276,26 @@ small {
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  background: var(--surface);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 10px;
 }
 
 .admin-row.is-hidden-work {
-  opacity: 0.5;
+  background: var(--surface);
+  opacity: 0.65;
 }
 
 .admin-row.dragging {
-  border-color: #55555f;
-  background: var(--surface-hover);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(20, 22, 26, 0.14);
 }
 
 /* 손잡이 — 이걸 잡아야만 끌립니다. 폰에서 스크롤과 안 부딪히게. */
 .handle {
   flex: 0 0 auto;
   padding: 6px 4px;
-  color: #55555f;
+  color: var(--text-faint);
   font-size: 1.125rem;
   line-height: 1;
   cursor: grab;
@@ -295,12 +313,12 @@ small {
   aspect-ratio: 16 / 9;
   border-radius: 5px;
   overflow: hidden;
-  background: #202027;
+  background: var(--surface-hover);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.875rem;
-  color: #4f4f5c;
+  color: var(--text-faint);
 }
 
 .row-thumb img {

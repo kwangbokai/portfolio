@@ -10,10 +10,15 @@ const SB_HEADERS = {
   Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
 };
 
-// ── 상단 프로필 그리기 ──────────────────────────────────────
+// ── 왼쪽 프로필 그리기 ──────────────────────────────────────
 function renderProfile(profile) {
   const el = document.getElementById("profile");
   el.textContent = "";
+
+  // 이름 첫 글자로 만든 원형 마크
+  const avatar = document.createElement("div");
+  avatar.className = "avatar";
+  avatar.textContent = (profile.name || "?").trim().charAt(0);
 
   const h1 = document.createElement("h1");
   h1.textContent = profile.name || "";
@@ -22,20 +27,25 @@ function renderProfile(profile) {
   role.className = "role";
   role.textContent = profile.role || "";
 
-  const intro = document.createElement("p");
-  intro.className = "intro";
-  intro.textContent = profile.intro || "";
+  el.append(avatar, h1, role);
 
-  const contact = document.createElement("div");
-  contact.className = "contact";
+  if (profile.intro) {
+    const intro = document.createElement("p");
+    intro.className = "intro";
+    intro.textContent = profile.intro;
+    el.appendChild(intro);
+  }
 
   if (profile.email) {
     const mail = document.createElement("a");
-    mail.className = "primary";
+    mail.className = "mail";
     mail.href = `mailto:${profile.email}`;
-    mail.textContent = profile.email;
-    contact.appendChild(mail);
+    mail.textContent = "메시지 보내기";
+    el.appendChild(mail);
   }
+
+  const links = document.createElement("div");
+  links.className = "links";
 
   (profile.links || []).forEach((link) => {
     if (!link || !link.url || !link.label) return;
@@ -43,12 +53,19 @@ function renderProfile(profile) {
     a.href = link.url;
     a.target = "_blank";
     a.rel = "noopener noreferrer";
-    a.textContent = link.label;
-    contact.appendChild(a);
+
+    const label = document.createElement("span");
+    label.textContent = link.label;
+
+    const ext = document.createElement("span");
+    ext.className = "ext";
+    ext.textContent = "↗";
+
+    a.append(label, ext);
+    links.appendChild(a);
   });
 
-  el.append(h1, role, intro);
-  if (contact.children.length) el.appendChild(contact);
+  if (links.children.length) el.appendChild(links);
 
   const title = `${profile.name || ""} — ${profile.role || ""}`.trim();
   if (title !== "—") document.title = title;
@@ -97,19 +114,7 @@ function createCard(work) {
     meta.appendChild(summary);
   }
 
-  // 썸네일 아래에 제목 줄. 링크가 있으면 오른쪽에 화살표.
-  const body = document.createElement("div");
-  body.className = "card-body";
-  body.appendChild(meta);
-
-  if (hasLink) {
-    const arrow = document.createElement("span");
-    arrow.className = "arrow";
-    arrow.textContent = "↗";
-    body.appendChild(arrow);
-  }
-
-  card.append(thumb, body);
+  card.append(thumb, meta);
   return card;
 }
 
@@ -117,6 +122,7 @@ function createCard(work) {
 function renderWorks(works, noticeText) {
   const el = document.getElementById("works");
   el.textContent = "";
+  document.getElementById("works-count").textContent = works.length || "";
 
   if (noticeText) {
     const notice = document.createElement("p");
