@@ -4,33 +4,98 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>이광복 — 영상 디자이너</title>
-    <meta name="description" content="영상 디자이너 이광복의 작업물 모음" />
+    <meta
+      name="description"
+      content="모션그래픽과 영상 디자인. 게임·브랜드 광고 작업을 합니다."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='72' font-size='64' font-family='Helvetica,Arial' font-weight='700' fill='%23fff' text-anchor='middle'>ii</text></svg>"
     />
   </head>
   <body>
-    <div class="banner" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
 
-    <div class="shell">
-      <!-- 왼쪽 프로필 : config.js 또는 Supabase 의 profile 로 채워집니다 -->
-      <aside class="profile" id="profile"></aside>
+    <header class="header">
+      <a href="#top" class="logo" id="logo">ii</a>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+        </svg>
+      </button>
+    </header>
 
-      <main>
-        <div class="works-head">
-          <h2>작업</h2>
-          <span class="count" id="works-count"></span>
+    <nav class="menu" id="menu" aria-hidden="true">
+      <a href="#work" data-close>작업</a>
+      <a href="#about" data-close>소개</a>
+      <a href="#contact" data-close>연락</a>
+    </nav>
+
+    <main id="top">
+      <!-- 히어로 : 브랜드 이름이 한 글자씩 올라옵니다 -->
+      <section class="hero" id="hero">
+        <h1 id="hero-title" aria-label="IMAGINE IMOTION"></h1>
+        <p class="hero-sub" id="hero-sub"></p>
+      </section>
+
+      <!-- 작업물이 끊임없이 흘러가는 띠 -->
+      <section class="marquee" id="marquee" aria-hidden="true" hidden>
+        <div class="marquee-track" id="marquee-track"></div>
+      </section>
+
+      <!-- 소개 한 문단 -->
+      <section class="statement" id="about">
+        <p class="mono">Motion Design · Seoul</p>
+        <p class="fade" id="statement-text"></p>
+      </section>
+
+      <!-- 작업 그리드 -->
+      <section class="work" id="work">
+        <div class="work-head">
+          <span class="mono">Selected Work</span>
+          <span class="mono" id="work-count"></span>
         </div>
-        <div class="works" id="works">
+        <div class="grid" id="works">
           <p class="state">불러오는 중…</p>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
 
-    <footer class="footer">
-      <span id="footer-name"></span>
+    <footer class="footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2 id="footer-brand-name"></h2>
+          <p id="footer-bio"></p>
+        </div>
+        <div class="footer-col">
+          <h3>Socials</h3>
+          <ul id="footer-socials"></ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul id="footer-contact"></ul>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <span id="footer-copy"></span>
+        <span>Built with Claude Code</span>
+      </div>
     </footer>
 
     <script src="config.js"></script>

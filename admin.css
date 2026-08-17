@@ -1,7 +1,52 @@
 /* ============================================================
    어드민 화면 전용. 예쁘게보다 쓰기 쉽게.
-   색은 styles.css 의 변수를 그대로 씁니다.
+
+   이 파일은 혼자서 완결됩니다 — styles.css 를 쓰지 않습니다.
+   사이트 디자인을 바꿔도 어드민은 그대로 굴러가게 하려고요.
    ============================================================ */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f7f8fa;
+  --surface-hover: #f0f2f6;
+  --line: #e6e9ef;
+  --line-strong: #d3d8e2;
+  --text: #14161a;
+  --text-dim: #6a7180;
+  --text-faint: #9aa1af;
+  --accent: #1b4dff;
+  --accent-soft: #eef2ff;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.state {
+  margin: 0;
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--text-dim);
+  background: var(--surface);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+}
 
 .page {
   max-width: 760px;
