@@ -38,8 +38,9 @@ const SITE_TITLE = `${PROFILE.name} — ${PROFILE.role}`;
 //  단, supabase-setup.sql 의 보안 설정(RLS)을 꼭 먼저 실행하세요.
 //
 //  비워두면 아래 샘플 작업물이 대신 보입니다.
-const SUPABASE_URL = "";
-const SUPABASE_ANON_KEY = "";
+const SUPABASE_URL = "https://tkjkgnglwehsrzdujsez.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRramtnbmdsd2Voc3J6ZHVqc2V6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5MzYyODIsImV4cCI6MjEwMjUxMjI4Mn0.MalmpZKpf_RQBkjjE6-4SchR894z9U7ROXxAfnSQ6nI";
 
 // ── 4. 샘플 작업물 (Supabase 연결 전에만 보입니다) ──────────
 const SAMPLE_WORKS = [
