@@ -17,10 +17,11 @@ const PROFILE = {
   email: "xox8121@gmail.com",
 
   // 외부 링크 1~3개. 안 쓸 링크는 줄째로 지우면 화면에서도 사라집니다.
+  // ※ Supabase 에 연결된 뒤에는 어드민(/admin)의 프로필 탭이 우선입니다.
+  //    여기 값은 연결이 끊겼을 때 쓰는 예비용입니다.
   links: [
-    // { label: "인스타그램", url: "https://instagram.com/..." },
-    // { label: "비메오",   url: "https://vimeo.com/..." },
-    // { label: "링크드인", url: "https://linkedin.com/in/..." },
+    { label: "인스타그램", url: "https://www.instagram.com/imagine_imotion/" },
+    { label: "비메오", url: "https://vimeo.com/user82831253" },
   ],
 };
 
