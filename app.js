@@ -103,6 +103,14 @@ function createCard(work) {
       placeholder.remove();
       thumb.insertBefore(img, thumb.firstChild);
     };
+    // 큰 썸네일이 없는 영상이면 작은 걸로 한 번 더 시도합니다
+    if (work.image_fallback) {
+      img.onerror = () => {
+        const next = work.image_fallback;
+        img.onerror = null;
+        img.src = next;
+      };
+    }
     img.src = work.image_url;
   }
 
@@ -183,7 +191,45 @@ async function loadProfile() {
   }
 }
 
+// ── 데모 모드 ───────────────────────────────────────────────
+// 주소 뒤에 ?demo=1 이 붙었을 때만 켜집니다. 방문자에게는 안 보입니다.
+const DEMO_ON = new URLSearchParams(location.search).has("demo");
+
+// 유튜브 주소에서 영상 아이디만 뽑아냅니다
+function youtubeId(input) {
+  if (!input) return "";
+  const raw = input.trim();
+  if (!raw.includes("/")) return raw; // 아이디를 그대로 적은 경우
+  const match = raw.match(
+    /(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([A-Za-z0-9_-]{6,})/
+  );
+  return match ? match[1] : "";
+}
+
+function demoWorks() {
+  return (typeof DEMO_WORKS === "undefined" ? [] : DEMO_WORKS).map((item) => {
+    const id = youtubeId(item.youtube);
+    return {
+      title: item.title,
+      summary: item.summary,
+      // 큰 썸네일부터 시도하고, 없으면 작은 것으로 떨어집니다
+      image_url: id ? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` : "",
+      image_fallback: id ? `https://i.ytimg.com/vi/${id}/mqdefault.jpg` : "",
+      link_url: id ? `https://www.youtube.com/watch?v=${id}` : "",
+    };
+  });
+}
+
 async function loadWorks() {
+  // 데모 모드 — 데이터베이스를 아예 건드리지 않습니다
+  if (DEMO_ON) {
+    renderWorks(
+      demoWorks(),
+      "데모 모드입니다. 디자인 확인용 임시 작업물이고, 주소에 ?demo=1 을 붙였을 때만 보입니다. 그냥 들어온 방문자에게는 보이지 않습니다."
+    );
+    return;
+  }
+
   // 아직 연결 전이면 샘플을 보여줍니다
   if (!SB_READY) {
     renderWorks(

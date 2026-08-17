@@ -98,15 +98,15 @@ body {
 }
 
 .avatar {
-  width: 88px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.25rem;
+  font-size: 1.375rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   border: 4px solid var(--bg);
@@ -121,7 +121,7 @@ body {
 
 .profile h1 {
   margin: 6px 0 0;
-  font-size: 1.5rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -129,12 +129,12 @@ body {
 .profile .role {
   margin: 0;
   color: var(--text-dim);
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
 }
 
 .profile .intro {
   margin: 6px 0 0;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--text-dim);
   word-break: keep-all;
 }
@@ -145,11 +145,11 @@ body {
   justify-content: center;
   gap: 8px;
   margin-top: 8px;
-  padding: 11px 16px;
+  padding: 10px 16px;
   border-radius: 8px;
   background: var(--accent-soft);
   color: var(--accent);
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-decoration: none;
   transition: background 0.15s ease;
@@ -173,10 +173,10 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 12px 14px;
+  padding: 11px 14px;
   color: var(--text);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   transition: background 0.15s ease;
 }
@@ -191,7 +191,7 @@ body {
 
 .links .ext {
   color: var(--text-faint);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
 }
 
 /* ── 작업물 그리드 ───────────────────────────────────────── */
@@ -207,14 +207,14 @@ body {
 
 .works-head h2 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .works-head .count {
   color: var(--text-faint);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -290,7 +290,7 @@ a.card:focus-visible .thumb {
 .meta {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 16px 16px 14px;
+  padding: 14px 14px 12px;
   background: linear-gradient(
     to top,
     rgba(10, 12, 16, 0.9) 0%,
@@ -311,7 +311,7 @@ a.card:focus-visible .thumb {
 
 .meta h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   word-break: keep-all;
@@ -319,9 +319,9 @@ a.card:focus-visible .thumb {
 }
 
 .meta p {
-  margin: 3px 0 0;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.8125rem;
+  margin: 2px 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.6875rem;
   word-break: keep-all;
 }
 
@@ -354,18 +354,18 @@ a.card:focus-visible .thumb {
   color: var(--text-dim);
   background: var(--surface);
   border-radius: var(--radius);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .notice {
   grid-column: 1 / -1;
   margin: 0;
-  padding: 12px 14px;
+  padding: 11px 13px;
   border-radius: 8px;
   background: #fff8e6;
   border: 1px solid #f0dfae;
   color: #86651a;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
 }
 
 /* ── 푸터 ────────────────────────────────────────────────── */
@@ -377,5 +377,5 @@ a.card:focus-visible .thumb {
   padding: 24px 28px 0;
   border-top: 1px solid var(--line);
   color: var(--text-faint);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
 }
