@@ -1,0 +1,250 @@
+/* ============================================================
+   레이아웃과 색. 여기는 안 건드려도 됩니다.
+   글자를 바꾸려면 config.js 를 여세요.
+   ============================================================ */
+
+:root {
+  --bg: #0d0d0f;
+  --surface: #16161a;
+  --surface-hover: #1d1d22;
+  --line: #26262c;
+  --text: #f2f2f4;
+  --text-dim: #9a9aa4;
+  --accent: #e8e8ea;
+  --radius: 12px;
+  --max: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 20px 80px;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 40px 18px 60px;
+  }
+}
+
+/* ── 상단 프로필 ─────────────────────────────────────────── */
+
+.profile {
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.profile .role {
+  margin: 6px 0 0;
+  color: var(--text-dim);
+  font-size: 1rem;
+}
+
+.profile .intro {
+  margin: 20px 0 0;
+  font-size: 1.0625rem;
+  max-width: 34em;
+  color: #d6d6dc;
+}
+
+.profile .contact {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile .contact a {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.profile .contact a:hover {
+  background: var(--surface);
+  border-color: #3a3a44;
+}
+
+.profile .contact a.primary {
+  border-color: #4a4a56;
+}
+
+/* ── 작업물 ──────────────────────────────────────────────── */
+
+.section-label {
+  margin: 48px 0 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* 데스크탑 2열 그리드 → 좁아지면 1열 */
+.works {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 700px) {
+  .works {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+a.card:hover {
+  background: var(--surface-hover);
+  border-color: #3a3a44;
+  transform: translateY(-2px);
+}
+
+a.card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 썸네일 — 카드 폭 전체. 이미지가 없거나 깨져도 자리는 그대로 유지됩니다 */
+.thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #202027;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f4f5c;
+  font-size: 2rem;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 썸네일 아래 제목 줄 */
+.card-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px 16px;
+}
+
+.meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.meta h3 {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+
+.meta p {
+  margin: 5px 0 0;
+  color: var(--text-dim);
+  font-size: 0.9375rem;
+  word-break: keep-all;
+}
+
+.arrow {
+  flex: 0 0 auto;
+  color: #55555f;
+  font-size: 1.125rem;
+}
+
+a.card:hover .arrow {
+  color: var(--text);
+}
+
+/* ── 안내 문구 ───────────────────────────────────────────── */
+
+.state {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-dim);
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  font-size: 0.9375rem;
+}
+
+.state code {
+  background: #26262c;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.notice {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #1e1a10;
+  border: 1px solid #4a3d1a;
+  color: #e5c977;
+  font-size: 0.8125rem;
+}
+
+/* ── 푸터 ────────────────────────────────────────────────── */
+
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: #62626d;
+  font-size: 0.8125rem;
+}

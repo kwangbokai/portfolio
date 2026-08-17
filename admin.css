@@ -1,0 +1,381 @@
+/* ============================================================
+   어드민 화면 전용. 예쁘게보다 쓰기 쉽게.
+   ============================================================ */
+
+.page--admin {
+  max-width: 720px;
+}
+
+/* ── 로그인 ──────────────────────────────────────────────── */
+
+.login {
+  max-width: 340px;
+  margin: 8vh auto 0;
+}
+
+.login h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.login-desc {
+  margin: 6px 0 28px;
+  color: var(--text-dim);
+  font-size: 0.9375rem;
+}
+
+/* ── 상단 바 ─────────────────────────────────────────────── */
+
+.admin-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.admin-top h1 {
+  margin: 0;
+  font-size: 1.375rem;
+}
+
+.admin-who {
+  margin: 4px 0 0;
+  color: var(--text-dim);
+  font-size: 0.8125rem;
+}
+
+.admin-top-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── 탭 ──────────────────────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 24px 0 20px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: none;
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.tab.is-active {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+/* ── 버튼 ────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: #3a3a44;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn--primary {
+  background: #f2f2f4;
+  color: #16161a;
+  border-color: #f2f2f4;
+  font-weight: 600;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: #fff;
+  border-color: #fff;
+}
+
+.btn--small {
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+}
+
+.btn--danger:hover:not(:disabled) {
+  border-color: #7d3b3b;
+  color: #ff9d9d;
+}
+
+/* ── 폼 ──────────────────────────────────────────────────── */
+
+.editor,
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.editor h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--text-dim);
+}
+
+label.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+label.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: #f2f2f4;
+}
+
+.label-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.req {
+  color: #7d7d8a;
+  font-size: 0.75rem;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #0f0f12;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9375rem;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #55555f;
+}
+
+small {
+  color: #6e6e79;
+  font-size: 0.75rem;
+}
+
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-error {
+  margin: 0;
+  color: #ff9d9d;
+  font-size: 0.8125rem;
+}
+
+.form-note {
+  margin: 0;
+  color: #8fd9a8;
+  font-size: 0.8125rem;
+}
+
+/* ── 바 ──────────────────────────────────────────────────── */
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.hint {
+  color: #6e6e79;
+  font-size: 0.8125rem;
+}
+
+/* ── 작업물 목록 ─────────────────────────────────────────── */
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.admin-row.is-hidden-work {
+  opacity: 0.5;
+}
+
+.admin-row.dragging {
+  border-color: #55555f;
+  background: var(--surface-hover);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* 손잡이 — 이걸 잡아야만 끌립니다. 폰에서 스크롤과 안 부딪히게. */
+.handle {
+  flex: 0 0 auto;
+  padding: 6px 4px;
+  color: #55555f;
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.handle:active {
+  cursor: grabbing;
+  color: var(--text);
+}
+
+.row-thumb {
+  flex: 0 0 64px;
+  aspect-ratio: 16 / 9;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #202027;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: #4f4f5c;
+}
+
+.row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.row-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-meta strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row-meta span {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.8125rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row-actions {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 6px;
+}
+
+@media (max-width: 560px) {
+  .row-thumb {
+    display: none;
+  }
+  .row-actions .btn {
+    padding: 7px 10px;
+  }
+}
+
+/* ── 링크 편집 ───────────────────────────────────────────── */
+
+.links-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links-label {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+}
+
+.links-block > .btn {
+  align-self: flex-start;
+}
+
+.link-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.link-row input:first-child {
+  flex: 0 0 30%;
+}
+
+.link-row input:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
